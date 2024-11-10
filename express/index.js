@@ -4,15 +4,15 @@ const app = express();              // Iniciando o express
 //Rota
 app.get("/",function(req, res){
     res.send("<h1>Bem vindo ao meu servidor</h1>")
-});
+})
 
 app.get("/blog",function(req, res){
     res.send("Bem vindo ao meu blog")
-});
+})
 
 app.get("/canal/youtube",function(req, res){
     res.send("<h1>Bem vindo ao meu canal!</h1>")
-});
+})
 
 //Rota com Parâmetro Obrigatório
 app.get("/paramentro/obrigatorio/:nome/:empresa",function(req, res){
@@ -21,12 +21,12 @@ app.get("/paramentro/obrigatorio/:nome/:empresa",function(req, res){
     var nome = req.params.nome;
     var empresa = req.params.empresa;
     res.send(" <h1> oi! " + nome + " do " + empresa + " </h1> ")
-});
+})
 
 //Rota com Parâmetro não Obrigatório
 app.get("/parametro/:artigo?",function(req, res){
     res.send("<h1>Bem vindo ao meu canal!</h1>")
-});
+})
 
 app.get("/blogs/:artigo?",function(req, res){
     var artigo = req.params.artigo;
@@ -37,7 +37,7 @@ app.get("/blogs/:artigo?",function(req, res){
     }
 })
 
-//Query params
+//Rotas Query params
 app.get("/params/youtube", function(req, res){
     var canal = req.query["canal"];
 
