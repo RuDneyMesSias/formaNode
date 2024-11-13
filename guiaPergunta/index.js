@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
 // Express usar o EJS como View engine
 app.set('view engine', 'ejs');
@@ -7,14 +8,33 @@ app.set('view engine', 'ejs');
 //Definir arquivos estáticos
 app.use(express.static('public'));
 
+//BodyParser: decodificar para javaScript
+app.use(bodyParser.urlencoded({ extended: false}));
+app.use(bodyParser.json());
+
 //Rota View engine
 app.get("/", function(req, res){
     res.render("index")
 })
 
+//[#1]Projeto pergunta e resposta 
+
+app.get("/perguntar", function(req, res){
+    res.render("perguntar")
+})
+
+// Rota do tipo post: Apenas recebe dados 
+app.post("/salvarpergunta",function(req, res){
+    var titulo = req.body.titulo;
+    var descricao = req.body.descricao;
+
+    res.send(" Formulario recebido! " + titulo + " " + " descricao " + descricao)
+
+})
+
 //Rota View dentro de pasta
-app.get("/home", function(req, res){
-    res.render("principal/perfil")
+app.get("/ejs", function(req, res){
+    res.render("public")
 })
 
 //Variáveis no HTML Dinâmico
