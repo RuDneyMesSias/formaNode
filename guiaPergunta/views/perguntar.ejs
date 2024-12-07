@@ -1,28 +1,29 @@
-<%- include ('./partials/header.ejs') %>
+<%- include('./partials/header'); %>
+
 <body>
-    <%- include ('./partials/navbar.ejs') %>
-    <div class="container">
-        <div class="card" id="formulario-pergunta">
-            <div class="card-head">
-                <h3>Realizar pergunta</h3>
-            </div>
-
-            <div class="card-body">
-                <form method="post" action="/salvarpergunta">
-
-                    <!-- Dois method: 
-                    <!-- <GET>: exibe os params
-                    <POST>: oculta os dados params 
-                -->
-                    <label>Título</label>
-
-                    <input type="text" placeholder="Título" class="form-control" name="titulo"><br><label>descrição</label>
-
-                    <textarea placeholder="Descreva sua pergunta aqui" class="form-control" name="descricao"></textarea><br>
-                    <button class="btn btn-primary">Perguntar</button>
-                </form>
-            </div>
-        </div>       
-    </div>
-</body>
-<%- include ('./partials/footer.ejs') %>
+    <body>
+        <%- include('./partials/navbar'); %>
+        <div class="container">
+            <div class="card" id="formulario-pergunta">
+                <div class="card-head">
+                    <h3>Realizar pergunta</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/salvarpergunta">
+    
+                        <!-- Dois method: 
+                        <!-- <GET>: exibe os params
+                        <POST>: oculta os dados params 
+                    -->
+                        <label>Título</label>
+    
+                        <input type="text" placeholder="Título" class="form-control" name="titulo"><br><label>descrição</label>
+    
+                        <textarea placeholder="Descreva sua pergunta aqui" class="form-control" name="descricao"></textarea><br>
+                        <button class="btn btn-primary">Perguntar</button>
+                    </form>
+                </div>
+            </div>       
+        </div>
+    </body>
+<%- include('./partials/footer'); %>
