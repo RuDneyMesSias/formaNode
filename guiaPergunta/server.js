@@ -23,15 +23,18 @@ app.listen(3000, ()=> {
 });
 
 /*
-//Rota View engine
+
+Rota View engine
+
 app.get("/", function(req, res){
     res.render("index")
 })
 
-________________Tipos de rotas ________________________________//
+________________Tipos de rotas EJS________________________________//
 Rota View dentro de pasta
 
 Variáveis no HTML Dinâmico
+
 app.get("/variavel",function(req, res){
 
     var nome = req.params.nome;
