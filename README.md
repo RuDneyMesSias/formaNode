@@ -1,5 +1,5 @@
 # Formação Node.js
-A Formação Node.js, a profunda bastante no desenvolvimento web com Javascript para o back-end, com bibliotecas como Express.js, e bancos de dados como MongoDB e MySQL.
+A Formação Node.js, profunda no desenvolvimento web com Javascript para o back-end, com bibliotecas como Express.js, e bancos de dados como MongoDB e MySQL.
 
 # todos os módulos
 - Node.js: É um software de código aberto, multiplataforma, baseado no interpretador V8 do Google e que permite a execução de códigos JavaScript fora de um navegador web.
