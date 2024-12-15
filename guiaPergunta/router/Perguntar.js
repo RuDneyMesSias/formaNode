@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Pergunta = require('../database/Pergunta');
+const Resposta = require('../database/Resposta');
 const { where } = require("sequelize");
 
 router.get("/", function(req, res){
@@ -40,13 +41,31 @@ router.get('/perguntar/:id', (req, res) =>{
         where:{id:id}
     }).then(perguntar => {
         if(perguntar != undefined){
-            res.render('pergunta',{
-                perguntar: perguntar
+
+            Resposta.findAll({
+                where: {perguntaId: perguntar.id},
+                order: [['id','DESC']]
+            }).then(respostas => {
+                res.render('pergunta',{
+                    perguntar: perguntar,
+                    respostas: respostas
+                });
             });
         }else{
             res.redirect("/perguntar")
         }
     });
+});
+
+router.post('/responder', (req, res)=> {
+    const { corpo, pergunta } = req.body; 
+
+   Resposta.create({
+    corpo: corpo,
+    perguntaId: pergunta
+   }).then(()=>  {
+    res.redirect('/perguntar/' + pergunta);
+   });
 });
 
 module.exports = router;
